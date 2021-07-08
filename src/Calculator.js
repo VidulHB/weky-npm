@@ -90,7 +90,7 @@ module.exports = async (options) => {
 	const calculator_uppercase = getRandomString(20);
 
 	// Buttons
-	const ac = new MessageButton()
+const ac = new MessageButton()
 		.setLabel('AC')
 		.setID(calculator_clear)
 		.setStyle('red');
@@ -314,9 +314,9 @@ module.exports = async (options) => {
 	if (options.embed.timestamp) {
 		embed.setTimestamp();
 	}
-	options.message.inlineReply(embed).then(async (msg) => {
+	options.message.inlineReply({embeds: [embed]}).then(async (msg) => {
 		msg.edit({
-			embed: embed,
+			embeds: [embed],
 			components: [
 				{
 					type: 1,
@@ -350,7 +350,7 @@ module.exports = async (options) => {
 				_embed.setTimestamp();
 			}
 			msg.edit({
-				embed: _embed,
+				embeds: [_embed],
 				components: [
 					{
 						type: 1,
@@ -385,7 +385,7 @@ module.exports = async (options) => {
 				_embed.setTimestamp();
 			}
 			msg.edit({
-				embed: _embed,
+				embeds: [_embed],
 				components: [
 					{
 						type: 1,
